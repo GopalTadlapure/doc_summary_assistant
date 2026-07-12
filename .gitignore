@@ -27,3 +27,5 @@ frontend/dist/
 # OS files
 Thumbs.db
 .DS_Store
+# Downloaded Hugging Face models
+backend/models/
