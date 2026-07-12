@@ -47,9 +47,9 @@ function UploadBox() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/upload",
-        formData,
-        {
+  "https://docsummaryassistant-production.up.railway.app/upload",
+  formData,
+  {
           headers: {
             "Content-Type": "multipart/form-data",
           },
