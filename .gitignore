@@ -1,0 +1,29 @@
+# Python
+backend/venv/
+backend/__pycache__/
+*.py[cod]
+
+# Uploads
+uploads/
+backend/uploads/
+
+# Environment variables
+.env
+.env.*
+
+# Hugging Face cache
+.cache/
+huggingface/
+
+# Node
+frontend/node_modules/
+
+# Build
+frontend/dist/
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
