@@ -135,6 +135,42 @@ Since this application runs entirely locally, it requires a couple of third-part
 
 ---
 
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Deployment
+
+This project is deployed using a split architecture:
+
+- **Frontend (React + Vite)** — deployed on [Vercel](https://vercel.com)
+- **Backend (Flask API + OCR + Summarization)** — deployed on [Railway](https://railway.app)
+
+### Frontend — Vercel
+The frontend is automatically built and deployed from this repository via Vercel. Any push to the connected branch triggers a redeploy.
+
+Make sure the frontend's environment variable pointing to the backend API URL (e.g. `VITE_API_URL`) is set in your Vercel project settings to match your live Railway backend URL.
+
+### Backend — Railway
+The backend is a Python/Flask service deployed on Railway, using Railway's Railpack builder. It handles file uploads, OCR (via Tesseract), and text summarization (via a local Hugging Face T5-small model).
+
+Required system dependencies (Tesseract, Poppler) are installed automatically at build time via the `RAILPACK_DEPLOY_APT_PACKAGES` environment variable set in the Railway service settings.
+
+Live backend URL: `https://docsummaryassistant-production.up.railway.app`
+
 ## 🧠 How the AI Model Works
 
 - **T5-Small (Text-to-Text Transfer Transformer)**: Developed by Google, T5 models frame all NLP tasks in a unified text-to-text format. 
